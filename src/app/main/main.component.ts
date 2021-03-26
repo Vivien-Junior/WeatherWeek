@@ -39,30 +39,37 @@ export class MainComponent implements OnInit {
   getLocation(){
     /* Take the user's location */
     if("geolocation" in navigator){
-        navigator.geolocation.watchPosition((success)=>{
-          const latitude = success.coords.latitude;
-          const longitude = success.coords.longitude;
+        navigator.geolocation.watchPosition(
+          (success)=>{
+            const latitude = success.coords.latitude;
+            const longitude = success.coords.longitude;
 
-          this.weatherService.getWeatherOfDayByCoord(latitude, longitude).subscribe(data=>{
-            this.getTodayWeather(data);
-          });
+            this.weatherService.getWeatherOfDayByCoord(latitude, longitude).subscribe(data=>{
+              this.getTodayWeather(data);
+            });
 
-          this.weatherService.getWeatherLocationByCoord(latitude, longitude).subscribe(data2=>{
-            this.getForecastWeather(data2);
-          });
-      });
+            this.weatherService.getWeatherLocationByCoord(latitude, longitude).subscribe(data2=>{
+              this.getForecastWeather(data2);
+            });
+          },
+          /* if geolocation is desactivate */
+          (error)=>{this.setDefaultLocation()}
+        );
     }
-    /* Paris default location */
-    else{
-      const name = "Paris";
-      this.weatherService.getWeatherOfDayByName(name).subscribe(data=>{
-        this.getTodayWeather(data);
-      });
+    /* Paris default location if the navigator haven't geolocation */
+    else{this.setDefaultLocation()}
+  }
 
-      this.weatherService.getWeatherLocationByName(name).subscribe(data2=>{
-        this.getForecastWeather(data2);
-      });
-    }
+  /* Paris default location if the navigator haven't geolocation or if geolocation is desactivate */
+  setDefaultLocation(){
+    const name = "Paris";
+    this.weatherService.getWeatherOfDayByName(name).subscribe(data=>{
+      this.getTodayWeather(data);
+    });
+
+    this.weatherService.getWeatherLocationByName(name).subscribe(data2=>{
+      this.getForecastWeather(data2);
+    });
   }
 
   /* Retrieve the day's weather */
