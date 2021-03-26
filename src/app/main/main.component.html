@@ -1,0 +1,35 @@
+<div id="logo">
+  <!-- royalty-free pixabay image-->
+  <img class="imgLogo" src="../assets/images/Logo.png" alt="logo weather week"/>
+</div>
+
+
+<div id="divWeatherMain">
+  <div class="iconstyleMainDiv">
+    <!-- the weather icon from the openweathermap library -->
+    <img class="iconstyleMain" src="http://openweathermap.org/img/wn/{{today.icon}}.png">
+  </div>
+    <div class="weatherInformations" style="font-size: 15px;"> {{today.city}}, {{today.country}}</div>
+    <div class="weatherInformations" style="font-size: 15px;margin-top: 5px;"> Aujourd'hui</div>
+    <div class="weatherInformations" style="font-size: 32px;margin-top: 5px;"> {{today.temperature}}°</div>
+    <div class="weatherInformations" style="font-size: 12px;">Ressenti : {{today.feelslike}}°</div>
+    <div class="weatherInformations" style="font-size: 12px;">Humidité : {{today.humidity}}%</div>
+    <div class="weatherInformations" style="font-size: 12px;">Pression : {{today.pressure}}hPa</div>
+</div>
+
+<div id="divWeatherForecast">
+  <!-- information for the next 4 following days -->
+  <div id="days" *ngFor="let day of forecastDays">
+      <div class="weatherForecastInformationsDay">{{day.day}}</div>
+      <div>
+        <img class="iconstyle" src="http://openweathermap.org/img/wn/{{day.icon}}.png">
+      </div>
+      <div class="weatherForecastInformations">Min : {{day.tempMin}}° / Max : {{day.tempMax}}°</div>
+  </div>
+</div>
+
+<!-- searchBar -->
+<form class ="inputCity" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <input type="text" class="inputValue" placeholder="Entrez une ville" formControlName="searchCity">
+  <input type="submit" value="Rechercher">
+</form>

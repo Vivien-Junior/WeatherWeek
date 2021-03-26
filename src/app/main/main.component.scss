@@ -1,0 +1,215 @@
+/* CSS for logo of Application */
+#logo{
+  position:relative;
+  width:auto;
+  height:auto;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: -40px;
+}
+
+.imgLogo {
+	width: 20%;
+	height: 20%;
+  margin:auto;
+}
+
+/* CSS for weather of the day */
+#divWeatherMain{
+    display: block;
+    border-radius: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    width: auto;
+    height: 240px;
+    background: rgb(0,0,0);
+    /* color gradient */
+    background: linear-gradient(180deg, rgba(21, 101, 192) 0%, rgba(3, 155, 229) 75%, rgb(79, 195, 247) 100%);
+    color: white;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+.weatherInformations{
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+}
+
+.iconstyleMainDiv{
+	width: 15%;
+	height: 40%;
+  margin:0 auto;
+  margin-bottom: -10px;
+}
+
+.iconstyleMain{
+  width: 100%;
+  height: 100%;
+}
+
+/* CSS for forecast Weather */
+#divWeatherForecast{
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: center;
+  width: auto;
+  height: auto;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 40px;
+}
+
+#days{
+  float: left;
+  padding: 10px;
+}
+
+.iconstyle{
+	width: 80px;
+	height: 80px;
+  margin:auto;
+}
+
+.weatherForecastInformations{
+  display:block;
+  margin:0 auto;
+  width: fit-content;
+  font-size: 12px;
+}
+
+.weatherForecastInformationsDay{
+  display:block;
+  margin:0 auto;
+  width: fit-content;
+  font-size: 15px;
+}
+
+/* CSS for searchBar */
+.inputCity{
+  text-align: center;
+}
+
+input[type="text"]{
+  height: 50px;
+  width: 600px;
+  background: #e7e7e7;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+
+input[type="submit"]{
+  height: 50px;
+  width: 150px;
+  background: #0A78D0;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  margin-left: 5px;
+  color: #eeeeee;
+}
+
+input[type="submit"]:hover{
+  background-color: #084E8A;
+}
+
+
+/* Responsive Styles */
+
+/* Tablet */
+@media screen and (max-width: 769px) {
+  input[type="text"]{
+    height: 40px;
+    width: 400px;
+  }
+
+  input[type="submit"]{
+    height: 40px;
+    width: 120px;
+  }
+}
+
+/* Smartphone */
+@media screen and (max-width: 575px) {
+  .imgLogo {
+  	width: 40%;
+  	height: 40%;
+    margin:auto;
+  }
+
+  #divWeatherMain{
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+
+  #divWeatherForecast{
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .iconstyleMainDiv{
+  	width: 30%;
+  	height: 40%;
+  }
+
+  .iconstyleMain{
+    width: 100%;
+    height: 100%;
+  }
+
+  .iconstyle{
+  	width: 60px;
+  	height: 60px;
+    margin:auto;
+  }
+
+  .weatherForecastInformations{
+    font-size: 9px;
+  }
+
+  .weatherForecastInformationsDay{
+    font-size: 12px;
+  }
+
+  input[type="text"]{
+    height: 30px;
+    width: 200px;
+    font-size: 10px;
+  }
+
+  input[type="submit"]{
+    height: 30px;
+    width: 70px;
+    font-size: 10px;
+  }
+}
+
+/* Smartphone like Galaxy Fold */
+@media screen and (max-width: 320px) {
+  #divWeatherMain{
+      margin-left: 2px;
+      margin-right: 2px;
+      width: auto;
+  }
+
+  #divWeatherForecast{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  input[type="text"]{
+    height: 25px;
+    width: 150px;
+    font-size: 10px;
+  }
+
+  input[type="submit"]{
+    height: 25px;
+    width: 70px;
+    font-size: 9px;
+  }
+}
